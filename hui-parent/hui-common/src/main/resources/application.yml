@@ -1,9 +1,9 @@
-server:
-  port: 8881
-spring:
-  application:
-    name: hui-common
-  cloud:
-    nacos:
-      discovery:
-        server-addr: 192.168.217.128:8848
+#server:
+#  port: 8881
+#spring:
+#  application:
+#    name: hui-common
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: 192.168.217.128:8848
