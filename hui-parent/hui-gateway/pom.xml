@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>hui-parent</artifactId>
+        <groupId>com.hui</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>hui-gateway</artifactId>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>com.hui</groupId>
+            <artifactId>hui-common</artifactId>
+        </dependency>
+
+        <!--路由网关-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+    </dependencies>
+
+
+
+
+    <profiles>
+        <profile>
+            <!-- 本地开发环境 -->
+            <id>dev</id>
+            <properties>
+                <profileActive>dev</profileActive>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <!-- 测试环境 -->
+            <id>test</id>
+            <properties>
+                <profileActive>test</profileActive>
+                <uri></uri>
+            </properties>
+        </profile>
+        <profile>
+            <!-- 生产环境 -->
+            <id>prod</id>
+            <properties>
+                <profileActive>prod</profileActive>
+            </properties>
+        </profile>
+    </profiles>
+
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>application.yml</include>
+                    <include>application-${profileActive}.yml</include>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+        </resources>
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--                <configuration>-->
+<!--                    <mainClass>cn.com.hui.GatewayApplication</mainClass>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+    </build>
+</project>

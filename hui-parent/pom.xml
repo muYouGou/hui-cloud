@@ -57,6 +57,7 @@
 
     <modules>
         <module>hui-common</module>
+        <module>hui-gateway</module>
     </modules>
 
 

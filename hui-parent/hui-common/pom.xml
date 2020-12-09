@@ -27,11 +27,16 @@
 
 
         <!-- 微服务一套-->
+        <!-- 服务注册中心，配置中心，服务总线 -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
-
+        <!-- 服务调用-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
 
         <!-- redis相关依赖-->
         <dependency>
