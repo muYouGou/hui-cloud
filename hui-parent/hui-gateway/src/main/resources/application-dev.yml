@@ -5,3 +5,26 @@ server:
 spring:
   application:
     name: hui-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.157.129:8848
+    gateway:
+      discovery:
+        locator:
+          # 开启gateway从nacos上获取服务列表
+          enabled: false
+      routes:
+      - id: my-security
+        uri: lb://hui-security #权限
+
+#开启acutor端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      #打开端点详情
+      show-details: always

@@ -13,15 +13,21 @@
 
 
     <dependencies>
-        <dependency>
-            <groupId>com.hui</groupId>
-            <artifactId>hui-common</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.hui</groupId>-->
+<!--            <artifactId>hui-common</artifactId>-->
+<!--        </dependency>-->
 
-        <!--路由网关-->
+        <!--路由网关 使用webflux 不需要web-start-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+
+        <!--nacos依赖 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
     </dependencies>
 
