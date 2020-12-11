@@ -13,10 +13,13 @@ spring:
       discovery:
         locator:
           # 开启gateway从nacos上获取服务列表
-          enabled: false
+          enabled: true
       routes:
       - id: my-security
         uri: lb://hui-security #权限
+        # ① 以http://localhost:8090/security/** 的访问路径会转发到hui-security微服务的/**
+        predicates:
+          - Path=/security/**
 
 #开启acutor端点
 management:
